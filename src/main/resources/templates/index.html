@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Home page</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+</head>
+<body>
+    <h1>Add Car</h1>
+    <form action="#" th:method="post" th:action="@{/cars/add}" th:object="${newCar}">
+        <label>Brand:
+            <select th:field="*{brand}">
+                <option th:value="'Audi'" th:text="Audi"></option>
+                <option th:value="'BMW'" th:text="BMW"></option>
+                <option th:value="'Honda'" th:text="Honda"></option>
+                <option th:value="'Seat'" th:text="Seat"></option>
+                <option th:value="'Volkswagen'" th:text="Volkswagen"></option>
+            </select>
+        </label>
+        <label>Model: <input type="text" th:field="*{model}"></label>
+        <label>Engine: <input type="text" th:field="*{engine}"></label>
+        <label>Year: <input type="number" th:field="*{year}"></label>
+        <label>Price: <input type="number" step="any" th:field="*{price}"></label>
+        <div th:object="${carOwner}">
+            <label>First name: <input type="text" th:field="*{firstName}"></label>
+            <label>Last name: <input type="text" th:field="*{lastName}"></label>
+            <label>Phone number: <input type="text" th:field="*{phoneNumber}"></label>
+        </div>
+        <div th:object="${ownerAddress}">
+            <label>City: <input type="text" th:field="*{city}"></label>
+            <label>ZIP code: <input type="text" th:field="*{zipCode}"></label>
+            <label>Street: <input type="text" th:field="*{street}"></label>
+            <label>House number: <input type="number" th:field="*{houseNumber}"></label>
+        </div>
+        <input type="submit" value="Add">
+    </form>
+    <a th:href="@{/cars}">Show all cars</a>
+    <form action="#" th:method="delete" th:action="@{/cars/delete}">
+        <label>Car id: <input type="number" th:name="id"></label>
+        <input type="submit" value="Delete">
+    </form>
+</body>
+</html>

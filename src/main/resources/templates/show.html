@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Cars</title>
+</head>
+<body>
+    <div th:if="${!cars.isEmpty()}">
+        <h1>Cars</h1>
+        <table border="1">
+            <tr>
+                <th>Id</th>
+                <th>Brand</th>
+                <th>Model</th>
+                <th>Engine</th>
+                <th>Year</th>
+                <th>Price</th>
+            </tr>
+            <tr th:each="car:${cars}">
+                <th th:text="${car.id}"></th>
+                <th th:text="${car.brand}"></th>
+                <th th:text="${car.model}"></th>
+                <th th:text="${car.engine}"></th>
+                <th th:text="${car.year}"></th>
+                <th th:text="${car.price}"></th>
+            </tr>
+        </table>
+        <h1>Owners</h1>
+        <table border="1">
+            <tr>
+                <th>Id</th>
+                <th>First name</th>
+                <th>Last name</th>
+                <th>Phone number</th>
+            </tr>
+            <tr th:each="car:${cars}">
+                <th th:text="${car.getOwner().id}"></th>
+                <th th:text="${car.getOwner().firstName}"></th>
+                <th th:text="${car.getOwner().lastName}"></th>
+                <th th:text="${car.getOwner().phoneNumber}"></th>
+            </tr>
+        </table>
+        <h1>Addresses</h1>
+        <table border="1">
+            <tr>
+                <th>Id</th>
+                <th>City</th>
+                <th>ZIP code</th>
+                <th>Street</th>
+                <th>House number</th>
+            </tr>
+            <tr th:each="car:${cars}">
+                <th th:text="${car.getOwner().getAddress().id}"></th>
+                <th th:text="${car.getOwner().getAddress().city}"></th>
+                <th th:text="${car.getOwner().getAddress().zipCode}"></th>
+                <th th:text="${car.getOwner().getAddress().street}"></th>
+                <th th:text="${car.getOwner().getAddress().houseNumber}"></th>
+            </tr>
+        </table>
+    </div>
+    <div th:unless="${!cars.isEmpty()}">
+        <h1>There is no data yet in DataBase.</h1>
+    </div>
+    <br><a th:href="@{/}">Back to the home page</a>
+</body>
+</html>
