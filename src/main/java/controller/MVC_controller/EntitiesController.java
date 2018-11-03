@@ -1,4 +1,4 @@
-package controller;
+package controller.MVC_controller;
 
 import model.Address;
 import model.Car;
@@ -13,12 +13,12 @@ import java.util.List;
 
 @Controller
 @RequestMapping("/cars")
-public class CarController {
+public class EntitiesController {
 
     private Repository repository;
 
     @Autowired
-    public CarController(Repository repository) {
+    public EntitiesController(Repository repository) {
         this.repository = repository;
     }
 

@@ -25,6 +25,12 @@
                 <th th:text="${car.price}"></th>
             </tr>
         </table>
+        <a th:href="@{/sortById}">Sort by Id</a><br>
+        <a th:href="@{/sortByBrand}">Sort by brand</a><br>
+        <a th:href="@{/sortByYearAsc}">Sort by year asc</a><br>
+        <a th:href="@{/sortByYearDesc}">Sort by year desc</a><br>
+        <a th:href="@{/sortByPriceAsc}">Sort by price asc</a><br>
+        <a th:href="@{/sortByPriceDesc}">Sort by price desc</a><br>
         <h1>Owners</h1>
         <table border="1">
             <tr>
