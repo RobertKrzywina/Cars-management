@@ -2,15 +2,12 @@ package repository;
 
 import model.Car;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
-import org.springframework.stereotype.Repository;
+import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
 import java.util.List;
 
-@Repository
+@RepositoryRestResource
 public interface CarRepository extends JpaRepository<Car ,Long> {
-    @Query("SELECT c.id, c.brand, c.engine, c.model, c.price, c.year FROM Car c")
-    List<Car> findAllCarsWithoutOwner();
 
     List<Car> findAllByOrderByIdAsc();
 

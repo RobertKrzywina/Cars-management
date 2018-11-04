@@ -1,4 +1,4 @@
-package controller.MVC_controller;
+package controller;
 
 import model.Address;
 import model.Car;
