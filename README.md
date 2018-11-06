@@ -8,6 +8,7 @@ Technologies:
     <li>Hibernate</li>
     <li>JPA</li>
     <li>MySQL</li>
+    <li>Lombok</li>
     <li>Thymeleaf</li>
     <li>JSON</li>
     <li>Maven</li>
