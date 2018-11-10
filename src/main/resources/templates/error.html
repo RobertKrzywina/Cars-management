@@ -3,9 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <title>Error</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
 </head>
 <body>
-    <h1>Something went wrong</h1><br>
+    <div th:if="${!errors.isEmpty()}">
+        <b>Couldn't add new Car!<br>
+            Total errors(maybe more): <p th:text="${errors.size()}"></p></b>
+        <div th:each="error:${errors}">
+            <p style="color: red;" th:text="${error.getDefaultMessage()}"></p>
+        </div>
+    </div>
+    <div th:if="${errors.isEmpty()}">
+        <h1>Something went wrong</h1><br>
+    </div>
     <a th:href="@{/}">Back to the home page</a>
 </body>
 </html>

@@ -3,6 +3,7 @@ package model;
 import lombok.*;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
 import java.io.Serializable;
 
 @Entity
@@ -19,14 +20,17 @@ public class Car implements Serializable {
     private Long id;
 
     @NonNull
+    @NotEmpty(message = "{brand.notEmpty}")
     @Column(nullable = false)
     private String brand;
 
     @NonNull
+    @NotEmpty(message = "{model.notEmpty}")
     @Column(nullable = false)
     private String model;
 
     @NonNull
+    @NotEmpty(message = "{engine.notEmpty}")
     @Column(nullable = false)
     private String engine;
 

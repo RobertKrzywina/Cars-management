@@ -1,26 +1,24 @@
 package repository;
 
+import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
 import model.Address;
 import model.Car;
 import model.Owner;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
 
 @Component
+@RequiredArgsConstructor
 public class Repository {
 
+    @NonNull
     private CarRepository carRepo;
+    @NonNull
     private OwnerRepository ownerRepo;
+    @NonNull
     private AddressRepository addressRepo;
-
-    @Autowired
-    public Repository(CarRepository carRepo, OwnerRepository ownerRepo, AddressRepository addressRepo) {
-        this.carRepo = carRepo;
-        this.ownerRepo = ownerRepo;
-        this.addressRepo = addressRepo;
-    }
 
     public void save(Car car, Owner owner, Address address) {
         addressRepo.save(address);
